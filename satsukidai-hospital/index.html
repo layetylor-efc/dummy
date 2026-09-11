@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>さつき台病院 耳鼻科・会計待ち 改善分析 2026-09-11</title>
+<style>
+:root{--navy:#1e3a5f;--blue:#dbeafe;--red:#fee2e2;--amber:#fef3c7;--green:#dcfce7;--gray:#f3f4f6;--text:#1f2937}
+*{box-sizing:border-box} body{margin:0;background:#f7f9fc;color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif}
+.wrap{max-width:1180px;margin:auto;padding:24px}.hero,.card{background:#fff;border-radius:16px;box-shadow:0 3px 16px rgba(0,0,0,.06)}
+.hero{padding:24px;margin-bottom:18px;border-top:7px solid var(--navy)}.card{padding:20px;margin:18px 0}
+h1{font-size:30px;margin:0 0 8px}h2{font-size:22px;margin:0 0 14px;color:var(--navy)}h3{margin-top:20px}
+.meta{display:flex;gap:8px;flex-wrap:wrap}.tag{background:#e8eef6;border-radius:999px;padding:5px 10px;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.kpi{background:var(--gray);border-radius:12px;padding:14px}.kpi b{font-size:24px;display:block;color:var(--navy)}
+.warn{background:var(--amber);padding:14px;border-left:5px solid #f59e0b;border-radius:8px;margin-top:14px}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{border:1px solid #d1d5db;padding:9px;vertical-align:top}th{background:var(--navy);color:#fff;position:sticky;top:0}
+.p1{background:var(--red);font-weight:700}.p2{background:var(--amber)}.ok{background:var(--green)}
+.small{font-size:12px;color:#6b7280}.scroll{overflow-x:auto}
+ol,ul{line-height:1.7}.rank{font-weight:700;color:var(--navy)}
+@media(max-width:800px){.wrap{padding:12px}.grid{grid-template-columns:1fr 1fr}table{font-size:11px}th,td{padding:7px}}
+</style>
+</head>
+<body><div class="wrap">
+
+<section class="hero">
+<h1>さつき台病院｜耳鼻科・会計待ち 改善分析</h1>
+<div class="meta"><span class="tag">観測日 2026-09-11</span><span class="tag">対象番号 176</span><span class="tag">最終呼出 14:58</span><span class="tag">患者体験 / Lean改善</span></div>
+<div class="warn"><b>評価上の注意：</b>今回の観測は14:47〜14:58の短時間・1症例ベースです。病院全体の性能断定ではなく、改善仮説の抽出と次回検証設計を目的とします。</div>
+</section>
+
+<section class="card">
+<h2>Executive Summary</h2>
+<div class="grid">
+<div class="kpi"><span>観測開始</span><b>14:47</b><small>170番呼出</small></div>
+<div class="kpi"><span>本人呼出</span><b>14:58</b><small>176番</small></div>
+<div class="kpi"><span>観測時間</span><b>11分</b><small>170→176到達</small></div>
+<div class="kpi"><span>予測誤差</span><b>+1分</b><small>14:57予測→14:58実績</small></div>
+</div>
+<p>最大の論点は「処理速度が遅いか」そのものより、<b>患者が自分の進捗を理解しにくいこと</b>です。呼出番号は <b>170 → 173 → 169 → 171 → 175 → 176</b> と前後し、単純な連番では待ち時間を推測できません。さらに会計窓口と待機椅子が離れている場合、呼出の聞き逃し・画面の見落とし・高齢者の移動負担が重なります。</p>
+</section>
+
+<section class="card">
+<h2>優先改善トップ5</h2>
+<ol>
+<li><span class="rank">P1｜番号が前後する理由を常時表示</span>：「会計内容により順番が前後します」を画面へ明示。</li>
+<li><span class="rank">P1｜推定待ち時間を表示</span>：番号差ではなく、直近処理ペースを使って「あと約○分」を表示。</li>
+<li><span class="rank">P1｜会計窓口と待機椅子の配置改善</span>：最遠席からでも画面・音声を確認できる配置へ。</li>
+<li><span class="rank">P1｜音声＋大型番号＋光通知</span>：単一手段に依存せず、高齢者・難聴者にも届く設計。</li>
+<li><span class="rank">P1｜改善KPIの定点観測</span>：P50/P90待ち時間、再呼出率、問い合わせ件数、予測誤差、患者満足度を週次レビュー。</li>
+</ol>
+</section>
+
+<section class="card">
+<h2>改善施策マトリクス</h2>
+<div class="scroll"><table>
+<thead><tr><th>ID</th><th>課題</th><th>観測根拠</th><th>患者影響</th><th>優先度</th><th>改善施策</th><th>KPI</th><th>検証方法</th></tr></thead>
+<tbody>
+<tr><td>IMP-01</td><td>番号が前後し進捗が読めない</td><td>170→173→169→171→175→176</td><td>不安・席を離れにくい</td><td class="p1">P1</td><td>番号前後の説明＋推定待ち時間表示</td><td>問い合わせ件数 / 予測誤差</td><td>導入前後2週間比較</td></tr>
+<tr><td>IMP-02</td><td>会計窓口と椅子が離れている</td><td>現地観察</td><td>聞き逃し・見逃し・移動負担</td><td class="p1">P1</td><td>会計待ちゾーンを近接配置</td><td>再呼出率 / 最遠席可聴率</td><td>最遠席テスト</td></tr>
+<tr><td>IMP-03</td><td>待ち時間の見える化不足</td><td>患者側で番号差から推測</td><td>心理的負担・予定が立たない</td><td class="p1">P1</td><td>「あと約○分」を表示</td><td>P50 / P90 / 予測誤差</td><td>予測と実績を日次比較</td></tr>
+<tr><td>IMP-04</td><td>音声呼出への依存</td><td>椅子との距離で聞き逃しリスク</td><td>高齢者・難聴者に不利</td><td class="p1">P1</td><td>音声＋大型番号＋光通知</td><td>聞き逃し件数</td><td>時間帯別サンプル</td></tr>
+<tr><td>IMP-05</td><td>離席ルールが分かりにくい</td><td>順番が読みにくい</td><td>トイレ等へ行きにくい</td><td class="p1">P1</td><td>再呼出・一時保留ルール掲示</td><td>離席関連問合せ件数</td><td>掲示前後比較</td></tr>
+<tr><td>IMP-06</td><td>処理時間のばらつきが見えない</td><td>順不同処理</td><td>予測しづらい</td><td class="p2">P2</td><td>通常/例外案件を分離計測</td><td>中央値 / P90処理時間</td><td>案件種別30件以上</td></tr>
+<tr><td>IMP-07</td><td>表示番号の意味が不明</td><td>173の後に169</td><td>「飛ばされた？」という不安</td><td class="p1">P1</td><td>受付順でない旨を常時表示</td><td>番号順に関する質問件数</td><td>掲示前後比較</td></tr>
+<tr><td>IMP-08</td><td>患者視点QA不足</td><td>椅子・窓口・画面の位置関係</td><td>高齢者ほど影響大</td><td class="p1">P1</td><td>高齢者/車椅子/杖の3ペルソナQA</td><td>視認率 / 可聴率 / 移動距離</td><td>現地ウォークスルー</td></tr>
+<tr><td>IMP-09</td><td>共通KPI不足</td><td>今回も単発観測</td><td>改善実感を評価できない</td><td class="p1">P1</td><td>週次ダッシュボード化</td><td>週次KPI更新率</td><td>定例レビュー</td></tr>
+<tr><td>IMP-10</td><td>単発観測の一般化リスク</td><td>14:47〜14:58のみ</td><td>誤った印象形成</td><td class="p2">P2</td><td>3日×午前/午後で追加観測</td><td>サンプル数 / 曜日カバレッジ</td><td>2〜4週間観測</td></tr>
+</tbody></table></div>
+</section>
+
+<section class="card">
+<h2>推奨KPI</h2>
+<div class="scroll"><table>
+<thead><tr><th>KPI</th><th>定義</th><th>現状</th><th>目標例</th><th>頻度</th></tr></thead>
+<tbody>
+<tr><td>会計待ち時間 P50</td><td>会計受付→呼出の中央値</td><td>未測定</td><td>基準値確立後に設定</td><td>日次/週次</td></tr>
+<tr><td>会計待ち時間 P90</td><td>90%の患者が収まる待ち時間</td><td>未測定</td><td>基準値から20%短縮</td><td>週次</td></tr>
+<tr><td>再呼出率</td><td>初回呼出で応答できなかった割合</td><td>未測定</td><td>2%未満</td><td>週次</td></tr>
+<tr><td>予測待ち時間誤差</td><td>予測時刻と実績時刻の差</td><td class="ok">今回 +1分（参考）</td><td>平均絶対誤差3分以内</td><td>日次</td></tr>
+<tr><td>待ち時間問合せ件数</td><td>「あと何分？」等の質問件数</td><td>未測定</td><td>30%削減</td><td>週次</td></tr>
+<tr><td>最遠席視認率</td><td>最遠席から番号が読める割合</td><td>未測定</td><td>100%</td><td>変更時</td></tr>
+<tr><td>最遠席可聴率</td><td>最遠席から呼出が識別できる割合</td><td>未測定</td><td>100%</td><td>月次/変更時</td></tr>
+<tr><td>患者満足度</td><td>分かりやすさ・安心感</td><td>未測定</td><td>5段階4.2以上</td><td>月次</td></tr>
+</tbody></table></div>
+</section>
+
+<section class="card">
+<h2>病院チェックポイント一覧</h2>
+<ul>
+<li><b>待合配置：</b>会計窓口と椅子の距離、椅子の向き、最遠席からの視認性、車椅子スペース。</li>
+<li><b>呼出：</b>音量、文字サイズ、表示時間、音声＋画面＋光の多重化。</li>
+<li><b>番号運用：</b>順番が前後する理由、推定待ち時間、呼出履歴、再呼出ルール。</li>
+<li><b>会計処理：</b>窓口数、処理時間のばらつき、通常案件と例外案件の分離、ピーク時応援。</li>
+<li><b>高齢者配慮：</b>座って待てる席数、トイレ離席、杖・難聴・視力低下への対応。</li>
+<li><b>動線：</b>診察室→会計の案内、床サイン、分岐点、移動距離。</li>
+<li><b>安全・個人情報：</b>番号中心の呼出、氏名表示の最小化、転倒リスク。</li>
+<li><b>改善管理：</b>P50/P90、再呼出率、質問件数、満足度、予測誤差の継続レビュー。</li>
+</ul>
+</section>
+
+<section class="card">
+<h2>次の検証</h2>
+<p><b>最低3日 × 午前/午後の2時間帯</b>で30〜60分ずつ追加観測し、呼出番号・時刻・窓口数・再呼出・待合混雑・最遠席視認/可聴を記録します。これで「たまたま遅かった」か「構造的な改善余地がある」かを分けられます。</p>
+<p class="small">作成日: 2026-09-11｜用途: 患者体験改善・業務改善仮説｜単発観測からの推定は断定せず要検証として扱う</p>
+</section>
+
+</div></body></html>
